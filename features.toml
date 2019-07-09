@@ -1,0 +1,35 @@
+#
+# Defining a microservice feature set to runtime equivalent
+#  - This file instructs DeployHub to deploy the docker 
+#  - containers to k8s for the component versions and then 
+#  - setup the istio routing
+#
+# [Application.Variant.Version]
+#   Component-1 = Variant.Version
+#   Component-2 = Variant.Version
+#   .
+#   .
+#   Component-N = Variant.Version
+
+DefaultDomain = "GLOBAL/BikeWorks Game/Street Bike/Bike"
+
+[Application]
+Name    = "Webstore"
+Variant = "July 4th Sale"
+Version = "1.2.3.0"
+Inherit = "latest"
+
+DeleteComponents = []
+
+UpdateComponents = [
+    ["cartservice",           "v0.1.1-4", "gf575b76"],
+    ["checkoutservice",       "v0.1.1-4", "gf575b76"],
+    ["currencyservice",       "v0.1.1-4", "gf575b76"],
+    ["emailservice",          "v0.1.1-4", "gf575b76"],
+    ["frontend",              "v0.1.1-4", "gf575b76"],
+    ["loadgenerator",         "v0.1.1-4", "gf575b76"],
+    ["paymentservice",        "v0.1.1-4", "gf575b76"],
+    ["productcatalogservice", "v0.1.1-4", "gf575b76"],
+    ["recommendationservice", "v0.1.1-4", "gf575b76"],
+    ["shippingservice",       "v0.1.1-4", "gf575b76"]
+]
